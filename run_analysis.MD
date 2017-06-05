@@ -56,11 +56,11 @@ levels(shortdata$activity) <- c("walking", "walking_upstairs", "walking_downstai
                                 "sitting", "standing", "laying")
 
 #Write to a file.
-write.csv(shortdata, "tidy_dataset_1.csv")
+write.table(shortdata, "tidy_dataset_1.txt", row.names = FALSE)
 
 
 #Create a tidy dataset with means of each variable. Use shortdata to melt the data by activity and subject.
 melteddata <- melt(shortdata, id=c("activity", "subject"))
 tidydata <- dcast(melteddata, activity + subject ~ variable, fun=mean, na.rm=TRUE)
 #Write to a file.
-write.csv(tidydata, "tidy_dataset_2.csv")
+write.table(tidydata, "tidy_dataset_2.txt", row.names = FALSE)
